@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pet House Landing Page</title>
+    <style> 
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #000;
+            color: aliceblue;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #222;
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #d73d3d;
+        }
+
+        .main {
+            padding-top: 100px; /* Offset for fixed navbar */
+            text-align: center;
+            width: 90%;
+            margin: auto;
+        }
+
+        h1 {
+            text-decoration: underline;
+        }
+
+        .pet-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .pet-container img {
+            width: 200px;
+            height: 200px;
+            margin: 40px;
+            float: left;
+            transition: transform 0.3s, opacity 0.3s;
+            cursor: pointer;
+        }
+
+        .pet-container img:hover {
+            opacity: 0.5;
+            transform: scale(1.1);
+        }
+
+        #contact {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#pets">Pets</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Main Section -->
+    <div class="main" id="home">
+        <h1>PET HOUSE</h1>
+        <h2>WELCOME TO OUR PET HOUSE</h2>
+        <h3>WE OFFER PETS AT AFFORDABLE PRICES</h3>
+        <h4>We offer all kinds of pets in a good condition</h4>
+
+        <!-- Pets Section -->
+        <div id="pets" class="pet-container">
+            <img src="https://www.rover.com/blog/wp-content/uploads/2020/06/Shih-Tzu.jpg" alt="Dog">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS0IQhVr9DDJCq61QX28zCoiqDrvezBh5ylw&s" alt="Cat">
+            <img src="https://thumbs.dreamstime.com/b/clean-aquariums-section-pet-store-filled-colorful-fish-aquatic-plants-picture-355677701.jpg" alt="Fish">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG5kbwyaHOqB-DjPfQi90sFKT6iYV84bOgGQ&s" alt="Bird">
+            <img src="https://www.thesprucepets.com/thmb/wtjX_DK2jsq_amjYpKK8klsQPg4=/1975x0/filters:no_upscale():strip_icc()/GettyImages-597187685-58ad8e7a3df78c345b864b4f.jpg" alt="Rabbit">
+            <img src="https://ontariospca.ca/wp-content/uploads/2022/01/IMG_7138-scaled.jpg" alt="Hamster">
+        </div>
+
+        <!-- Contact Section -->
+        <div id="contact">
+            <h3>Contact Us</h3>
+            <p>Email: info@pethouse.com</p>
+            <p>Phone: +123 456 7890</p>
+        </div>
+    </div>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Smooth Scroll Function
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                document.getElementById(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Image Click to Enlarge
+        document.querySelectorAll('.pet-container img').forEach(img => {
+            img.addEventListener('click', function() {
+                this.style.transform = "scale(1.5)";
+                setTimeout(() => {
+                    this.style.transform = "scale(1)";
+                }, 1000);
+            });
+        });
+    </script>
+
+</body>
+</html>
